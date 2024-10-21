@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Exitoso</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container registro-exitoso">
+        <h1>Registro Exitoso</h1>
+        <p>El producto se ha registrado correctamente con los siguientes datos:</p>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Código</th>
+                    <td>{{ producto.codigo }}</td>
+                </tr>
+                <tr>
+                    <th>Nombre</th>
+                    <td>{{ producto.nombre }}</td>
+                </tr>
+                <tr>
+                    <th>Marca</th>
+                    <td>{{ producto.marca }}</td>
+                </tr>
+                <tr>
+                    <th>Fecha de Vencimiento</th>
+                    <td>{{ producto.fecha_vencimiento }}</td>
+                </tr>
+                <tr>
+                    <th>Correo Electrónico</th>
+                    <td>{{ producto.correo }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="acciones">
+            <a href="{% url 'listar_productos' %}" class="boton">Ver todos los productos registrados</a>
+            <div>
+            </div>
+            <a href="{% url 'registro_producto' %}" class="boton">Registrar otro producto</a>
+        </div>
+    </div>
+</body>
+</html>
