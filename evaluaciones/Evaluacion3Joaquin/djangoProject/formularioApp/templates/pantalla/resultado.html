@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Exitoso</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="card shadow-sm p-4" style="width: 100%; max-width: 600px;">
+            <h1 class="text-center mb-4 text-success">Registro Exitoso</h1>
+            <p class="text-center">El producto se ha registrado correctamente con los siguientes datos:</p>
+
+            <table class="table table-bordered mt-3">
+                <tbody>
+                    <tr>
+                        <th scope="row">Código</th>
+                        <td>{{ producto.codigo }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Nombre</th>
+                        <td>{{ producto.nombre }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Marca</th>
+                        <td>{{ producto.marca }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Fecha de Vencimiento</th>
+                        <td>{{ producto.fecha_vencimiento }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Correo Electrónico</th>
+                        <td>{{ producto.correo }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="d-flex justify-content-between mt-4">
+                <a href="{% url 'listar_productos' %}" class="btn btn-outline-primary w-100 me-2">Ver todos los productos registrados</a>
+                <a href="{% url 'registro_producto' %}" class="btn btn-primary w-100 ms-2">Registrar otro producto</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

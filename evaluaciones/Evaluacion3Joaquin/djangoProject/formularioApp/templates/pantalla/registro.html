@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Producto</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="card shadow-sm p-4" style="width: 100%; max-width: 500px;">
+            <h1 class="text-center mb-4">Registrar Producto</h1>
+            <form method="POST" class="needs-validation" novalidate>
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="codigo" class="form-label">Código:</label>
+                    <input type="text" id="codigo" name="codigo" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Por favor, ingrese el código del producto.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre del Producto:</label>
+                    <input type="text" id="nombre" name="nombre" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Por favor, ingrese el nombre del producto.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="marca" class="form-label">Marca:</label>
+                    <input type="text" id="marca" name="marca" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Por favor, ingrese la marca del producto.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="fecha_vencimiento" class="form-label">Fecha de Vencimiento:</label>
+                    <input type="date" id="fecha_vencimiento" name="fecha_vencimiento" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Por favor, ingrese la fecha de vencimiento.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="correo" class="form-label">Correo Electrónico:</label>
+                    <input type="email" id="correo" name="correo" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Por favor, ingrese un correo electrónico válido.
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Registrar</button>
+            </form>
+
+            {% if error_message %}
+                <p class="text-danger mt-3 text-center">{{ error_message }}</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script>
+        (function () {
+            'use strict';
+            const forms = document.querySelectorAll('.needs-validation');
+            Array.from(forms).forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+    </script>
+</body>
+</html>

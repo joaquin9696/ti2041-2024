@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Restringido</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container py-5 d-flex justify-content-center">
+        <div class="bg-white p-5 rounded shadow text-center" style="max-width: 400px;">
+            <h1 class="mb-3 text-danger">¡Acceso Restringido!</h1>
+            <p class="mb-4">Debes iniciar sesión para acceder a esta página.</p>
+            <a href="{% url 'login' %}" class="btn btn-primary btn-lg">Iniciar Sesión</a>
+        </div>
+    </div>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
